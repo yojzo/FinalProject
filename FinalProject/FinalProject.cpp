@@ -33,10 +33,10 @@ int main()
 	
 	// Create our window and world with gravity 0,1
 	RenderWindow window(VideoMode(800, 600), "Bounce");
-	World world(Vector2f(0, 1));
+	World world(Vector2f(0, 0));
 
 	PhysicsRectangle paddle;
-	paddle.setSize(Vector2f(50, 20));
+	paddle.setSize(Vector2f(100, 15));
 	paddle.setCenter(Vector2f(400, 500));
 	paddle.setStatic(true);
 	world.AddPhysicsBody(paddle);
@@ -46,6 +46,7 @@ int main()
 	ball.setCenter(Vector2f(400, 300));
 	ball.setRadius(8);
 	world.AddPhysicsBody(ball);
+	ball.applyImpulse(Vector2f(0, .75));
 	
 	// Ceiling
 	PhysicsRectangle ceiling;
